@@ -1,14 +1,21 @@
 #include "RASDemo.h"
-
+#include <RASLib/inc/motor.h>
 #include <RASLib/inc/common.h>
 #include <RASLib/inc/gpio.h>
 #include <RASLib/inc/time.h>
 
 tBoolean led_on;
-
+tBoolean external;
+tBoolen motor
 void blink(void) {
     SetPin(PIN_F1, led_on);
-    SetPin(PIN_F3, !led_on);
+    SetPin(PIN_F2, led_on);
+    SetPin(PIN_B6, 
+    SetPin(PIN_B3, external);
+    SetPin(PIN_B3, !external);
+
+    external = !external;
+
 
     led_on = !led_on;
 }
@@ -16,7 +23,7 @@ void blink(void) {
 int main(void) {  
     char ch;
 
-    CallEvery(blink, 0, 0.25f);
+    CallEvery(blink, 0, 4.1f);
 
     while (1) {
         Printf("\nRAS Demo for Robotathon 2013\n"
